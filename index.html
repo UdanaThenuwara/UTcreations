@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT CREATIONS</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            position: relative;
+        }
+
+        /* Background Overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(74, 78, 105, 0.6); /* Muted dark overlay */
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(74, 78, 105, 0.85); /* Semi-transparent background */
+            color: #f2e9e4;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        nav a {
+            color: #f2e9e4;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 50px;
+            text-align: center;
+            color: #f2e9e4;
+        }
+
+        .about, .services, .portfolio, .contact {
+            background-color: rgba(201, 173, 167, 0.85); /* Semi-transparent muted background */
+            color: #333;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #f2e9e4;
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #f2e9e4;
+        }
+
+        /* Services Section */
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service-item {
+            padding: 15px;
+            background: rgba(242, 233, 228, 0.9); /* Muted beige with transparency */
+            color: #4a4e69;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Portfolio Section */
+        .portfolio-item {
+            display: inline-block;
+            width: 45%;
+            margin: 10px;
+            padding: 15px;
+            background-color: rgba(242, 233, 228, 0.9); /* Light background with transparency */
+            color: #4a4e69;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Section */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: rgba(242, 233, 228, 0.9); /* Light background */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4a4e69;
+            color: #f2e9e4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>UT CREATIONS</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="about" class="section about">
+    <h2>About Us</h2>
+    <p>Welcome to UT CREATIONS! We specialize in creative design solutions for your personal and business needs. From graphic design to digital art, our passion is to bring ideas to life with elegance and flair.</p>
+</section>
+
+<section id="services" class="section services">
+    <h2>Our Services</h2>
+    <div class="service-list">
+        <div class="service-item"><strong>Graphic Design:</strong> Logo, branding, and custom graphics.</div>
+        <div class="service-item"><strong>Digital Art:</strong> Unique digital illustrations and artwork.</div>
+        <div class="service-item"><strong>Web Design:</strong> Visually appealing and functional websites.</div>
+    </div>
+</section>
+
+<section id="portfolio" class="section portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-item">Project 1: Logo Design for Brand X</div>
+    <div class="portfolio-item">Project 2: Custom Illustration for Client Y</div>
+    <div class="portfolio-item">Project 3: Website Redesign for Z Company</div>
+    <div class="portfolio-item">Project 4: Personal Digital Art Collection</div>
+</section>
+
+<section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Get in touch with us for a custom design or consultation.</p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+</body>
+</html>
