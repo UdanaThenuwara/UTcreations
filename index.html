@@ -16,34 +16,31 @@
             font-family: Arial, sans-serif;
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: #333;
-            position: relative;
-        }
-
-        /* Background Overlay */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(74, 78, 105, 0.6); /* Muted dark overlay */
-            z-index: -1;
+            color: #4b4a4a;
+            padding-top: 60px; /* Ensures no overlap with the fixed header */
         }
 
         header {
-            background-color: rgba(74, 78, 105, 0.85); /* Semi-transparent background */
-            color: #f2e9e4;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
+            position: fixed; /* Keeps the header at the top of the viewport */
+            width: 100%;
             top: 0;
-            z-index: 1;
+            left: 0;
+            z-index: 1000; /* Ensures header stays above other content */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background for contrast */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Adds slight shadow for depth */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Larger font size for prominence */
+            color: #fff;
+            margin-bottom: 10px;
         }
 
         nav a {
-            color: #f2e9e4;
+            color: #fff;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
@@ -52,21 +49,19 @@
         .section {
             padding: 50px;
             text-align: center;
-            color: #f2e9e4;
         }
 
         .about, .services, .portfolio, .contact {
-            background-color: rgba(201, 173, 167, 0.85); /* Semi-transparent muted background */
-            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
             margin: 20px auto;
             padding: 20px;
             border-radius: 10px;
             max-width: 800px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        h1, h2 {
-            color: #f2e9e4;
+        h2 {
+            color: #000;
             margin-bottom: 20px;
         }
 
@@ -74,7 +69,6 @@
         .about p {
             font-size: 1.1em;
             line-height: 1.6;
-            color: #f2e9e4;
         }
 
         /* Services Section */
@@ -86,10 +80,9 @@
 
         .service-item {
             padding: 15px;
-            background: rgba(242, 233, 228, 0.9); /* Muted beige with transparency */
-            color: #4a4e69;
+            background: #696868;
+            color: #fff;
             border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Portfolio Section */
@@ -98,10 +91,9 @@
             width: 45%;
             margin: 10px;
             padding: 15px;
-            background-color: rgba(242, 233, 228, 0.9); /* Light background with transparency */
-            color: #4a4e69;
+            background-color: #696868;
+            color: #fff;
             border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Contact Section */
@@ -116,23 +108,33 @@
         input, textarea {
             padding: 10px;
             border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: rgba(242, 233, 228, 0.9); /* Light background */
+            border: 1px solid #000;
+            background-color: #fff;
+            color: #000;
         }
 
         button {
             padding: 10px;
-            background-color: #4a4e69;
-            color: #f2e9e4;
+            background-color: #000;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
             background-color: #333;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -164,22 +166,39 @@
 
 <section id="portfolio" class="section portfolio">
     <h2>Portfolio</h2>
-    <div class="portfolio-item">Design Logo for Your Business </div>
-    <div class="portfolio-item">Phography </div>
-    <div class="portfolio-item">Website Redesign </div>
+    <div class="portfolio-item">Logo Design for Brands</div>
+    <div class="portfolio-item">Custom Illustration</div>
+    <div class="portfolio-item">Photography</div>
     <div class="portfolio-item">Personal Digital Art Collection</div>
 </section>
 
 <section id="contact" class="section contact">
     <h2>Contact Us</h2>
-    <p>We’d love to hear from you! Get in touch with us for a custom design or consultation.</p>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+    <p>We’d love to hear from you! Fill out the form or contact us directly on WhatsApp.</p>
+    <form onsubmit="generateWhatsAppLink(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send via WhatsApp</button>
     </form>
+    <p>Or <a href="https://wa.me/+94703142025" target="_blank">Click here to contact us on WhatsApp</a></p>
 </section>
+
+<script>
+    function generateWhatsAppLink(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // WhatsApp URL with pre-filled message
+        const whatsappURL = `https://wa.me/+94703142025?text=Hello,%20I%20am%20${encodeURIComponent(name)}.%20My%20email%20is%20${encodeURIComponent(email)}.%20${encodeURIComponent(message)}`;
+
+        // Redirect the user to WhatsApp
+        window.open(whatsappURL, '_blank');
+    }
+</script>
 
 </body>
 </html>
